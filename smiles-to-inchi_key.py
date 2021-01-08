@@ -47,7 +47,7 @@ length = len(keys)
 i = 0
 
 f = open('{file_directory}/inchi_keys.csv','w+')
-f.write(id_col[0] + ',' smiles_col[0] + ',' + inchi_keys[0] + '\n')
+f.write(id_col[0] + ',' + smiles_col[0] + ',' + inchi_keys[0] + '\n')
 while i < len(keys):
      f.write(ids[i] + ',' + smiles2[i] + ',' + keys[i] + '\n')
      i += 1
