@@ -1,12 +1,17 @@
+# smiles-to-inchi-key.py
+# Michael He
+#
 # Takes .csv file of ID, SMILES(canonical) as input
 # Uses RDKit to convert canonical smiles to inchi_keys
-# Writes .csv file of ID, inchi_keys
+# Writes .csv file of ID, SMILES, inchi_keys
 #
 # To use, update '{file_directory}' with local user read/write directory and '{file.csv}' with input filename
 #
 # Compatability: Linux
 # Requirements: conda, rdkit
 # For instructions on how to set up RDKit, visit: https://www.rdkit.org/docs/Install.html
+#
+# Launch RDKit environment with $ conda activate my-rdkit-env
 #
 # Sample input file of kinase inhibitors included as SMILES.csv
 
@@ -26,9 +31,9 @@ with open('/{file_directory}/{file.csv}', newline='') as csvfile:
           id_col.append(row[0])
           smiles_col.append(row[1])
 
-smiles_col.pop(0)
+smiles2 = smiles_col[1:]
 
-for i in smiles_col:
+for i in smiles2:
      rdkit_mol = Chem.MolFromSmiles(i)
      inchi_key = Chem.MolToInchiKey(rdkit_mol)
      inchi_keys.append(inchi_key)
@@ -36,14 +41,14 @@ for i in smiles_col:
 inchi_keys = ['inchi_key'] + inchi_keys
 
 column_names = [id_col[0], inchi_keys[0]]
-col = id_col[1:]
+ids = id_col[1:]
 keys = inchi_keys[1:]
 length = len(keys)
 i = 0
 
 f = open('{file_directory}/inchi_keys.csv','w+')
-f.write(id_col[0] + ',' + inchi_keys[0] + '\n')
+f.write(id_col[0] + ',' smiles_col[0] + ',' + inchi_keys[0] + '\n')
 while i < len(keys):
-     f.write(col[i] + ',' + keys[i] + '\n')
+     f.write(ids[i] + ',' + smiles2[i] + ',' + keys[i] + '\n')
      i += 1
 f.close()
