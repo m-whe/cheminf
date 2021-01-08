@@ -3,8 +3,12 @@
 # Writes .csv file of ID, inchi_keys
 #
 # To use, update '{file_directory}' with local user read/write directory and '{file.csv}' with input filename
+#
 # Compatability: Linux
-# Sample input file included as SMILES.csv
+# Requirements: conda, rdkit
+# For instructions on how to set up RDKit, visit: https://www.rdkit.org/docs/Install.html
+#
+# Sample input file of kinase inhibitors included as SMILES.csv
 
 import rdkit
 from rdkit import Chem
