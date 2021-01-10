@@ -1,6 +1,6 @@
 # cheminf
 Simple cheminformatics workflows
-Michael He
+by Michael He
 
 I've included two python workflows in this repository.
 
