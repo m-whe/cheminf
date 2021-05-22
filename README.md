@@ -1,5 +1,5 @@
 # cheminf
-Simple cheminformatics workflows
+Cheminformatics workflows
 by Michael He
 
 I've included three python workflows in this repository.
