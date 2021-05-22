@@ -2,7 +2,7 @@
 Cheminformatics workflows
 by Michael He
 
-I've included three python workflows in this repository.
+I have included three python workflows in this repository.
 
 >1. smiles-to-inchi_key.py
 >2. CHEBMLid-to-smiles.py
